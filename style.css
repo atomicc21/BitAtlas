@@ -1,0 +1,1271 @@
+/* Base Styles */
+:root {
+    --primary-color: #f7931a;
+    --primary-dark: #e07f0a;
+    --secondary-color: #4d4d4d;
+    --background-light: #ffffff;
+    --background-dark: #0f172a;
+    --text-color: #333333;
+    --text-color-light: #ffffff;
+    --accent-color: #1a84f7;
+    --border-color: #e5e7eb;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --gradient-primary: linear-gradient(135deg, #f7931a 0%, #ff9a3c 100%);
+    --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --transition: all 0.3s ease;
+    --bg: #1f2525;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    scroll-padding-top: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    font-size: 1.6rem;
+    background-color: var(--background-light);
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 3.2rem; 
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 2.2rem;
+}
+
+h4 {
+    font-size: 1.8rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button, .btn {
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+    padding: 1.2rem 2rem;
+    border-radius: 5px;
+    transition: var(--transition);
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    min-height: 48px;
+    min-width: 48px;
+}
+
+button:hover, .btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.newsletter-form .btn:hover {
+    transform: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section {
+    padding: 6rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 7rem;
+    height: 0.3rem;
+    background-color: var(--primary-color);
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.2rem;
+}
+
+/* Header & Navigation */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color-light);
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Mobile-Optimierungen der Hero-Sektion */
+@media (max-width: 576px) {
+    .hero {
+        padding-top: 0;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+    
+    .header-content {
+        padding-top: 0;
+        padding-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        max-height: 85vh; 
+    }
+    
+    h1 {
+        font-size: 2.8rem;
+        margin-top: 0;
+        margin-bottom: 1.3rem;
+    }
+    
+    .hero-quote {
+        margin-bottom: 2rem;
+        max-width: 90%;
+        padding: 1rem;
+    }
+    
+    .subtitle {
+        margin-bottom: 1.7rem;
+        line-height: 1.3;
+    }
+    
+    .scroll-button {
+        margin-top: 1.7rem;
+    }
+}
+
+.header-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: var(--background-dark);
+}
+
+#bitcoinCanvas {
+    width: 100%;
+    height: 100%;
+}
+
+.header-content {
+    max-width: 80rem;
+    padding: 1.5rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 1.8rem;
+    opacity: 0.9;
+}
+
+.scroll-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    margin-top: 2rem;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scroll-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.down-arrow {
+    color: white;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 1rem 0; /* Mobile-First */
+    transition: var(--transition);
+}
+
+.main-nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.nav-links {
+    display: none; /* Mobile-First: Versteckt auf kleinen Geräten */
+    gap: 2rem;
+    max-height: 0; /* Für Slide-Down-Animation */
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease; /* Animation für Öffnen/Schließen */
+}
+
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    max-height: 50rem; /* Groß genug für alle Links */
+    opacity: 1;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 500;
+    position: relative;
+    padding: 1.5rem; /* Größere Touch-Ziele */
+    font-size: 1.6rem; /* Kleinere Schriftgröße für Mobile */
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.mobile-menu-btn {
+    display: flex; /* Mobile-First: Sichtbar auf kleinen Geräten */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-color);
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+/* Content Columns */
+.content-columns {
+    display: flex;
+    flex-direction: column; /* Mobile-First */
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.column {
+    flex: 1;
+}
+
+/* Feature Lists */
+.feature-list {
+    margin-top: 3rem;
+}
+
+.feature-list li {
+    display: flex;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    font-size: 2.2rem;
+    margin-right: 1.2rem;
+    color: var(--primary-color);
+    flex-shrink: 0;
+    width: 3.6rem;
+    height: 3.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(247, 147, 26, 0.1);
+    border-radius: 50%;
+}
+
+.feature-text h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+}
+
+/* Interactive Card */
+.interactive-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    height: 100%;
+}
+
+/* Dark Section */
+.dark-section {
+    background-color: var(--background-dark);
+    color: var(--text-color-light);
+    position: relative;
+    z-index: 1;
+}
+
+.dark-section .section-title::after {
+    background-color: var(--primary-color);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    margin: 4rem 0;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    left: 2rem; /* Mobile-First */
+    top: 0;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: flex-start; /* Mobile-First */
+    padding-left: 5rem;
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.timeline-item:nth-child(even) {
+    justify-content: flex-start;
+    padding-left: 5rem;
+}
+
+.timeline-point {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    top: 0;
+    left: 2rem; /* Mobile-First */
+    z-index: 2;
+}
+
+.timeline-content {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%; /* Mobile-First */
+    position: relative;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: rotate(45deg);
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before,
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -10px;
+}
+
+.timeline-date {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Quote Card */
+.quote-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--primary-color);
+    padding: 2rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 3rem;
+}
+
+.quote-card blockquote {
+    font-size: 2rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.quote-card cite {
+    font-style: normal;
+    display: block;
+    text-align: right;
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Accordion */
+.accordion {
+    margin-top: 2rem;
+}
+
+.accordion-item {
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.accordion-header {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    padding-right: 4rem; /* Platz für das "+"-Symbol */
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+    transition: var(--transition);
+}
+
+.accordion-header::after {
+    content: '+';
+    position: absolute;
+    right: 1rem; /* Weiter nach rechts verschoben */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    transition: var(--transition);
+}
+
+.accordion-item.active .accordion-header::after {
+    content: '−';
+}
+
+.accordion-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.accordion-item.active .accordion-content {
+    padding: 1.5rem;
+    max-height: 20rem;
+}
+
+/* Bitcoin Section */
+.bitcoin-section {
+    background-color: #f8f9fa;
+}
+
+.bitcoin-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin-bottom: 4rem;
+}
+
+.feature-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1.8rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card .feature-icon {
+    font-size: 3.6rem;
+    margin: 0 auto 2rem;
+    width: 6rem; /* Mobile-First */
+    height: 6rem;
+}
+
+.feature-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Comparison Section */
+.comparison-section {
+    background-color: #fff;
+}
+
+.comparison-table-container {
+    margin-bottom: 3rem;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 1.3rem;
+    table-layout: fixed;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+    word-wrap: break-word;
+}
+
+.comparison-table th:first-child,
+.comparison-table td:first-child {
+    width: 30%;
+}
+
+.comparison-table th:not(:first-child),
+.comparison-table td:not(:first-child) {
+    width: 35%;
+}
+
+.comparison-table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.comparison-table tr:hover {
+    background-color: rgba(247, 147, 26, 0.05);
+}
+
+.interactive-charts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.chart-container {
+    flex: 1;
+    min-width: 280px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+}
+
+.chart-container h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: var(--text-color-light);
+    text-align: center;
+    padding-bottom: 4rem;
+}
+
+.cta-section .section-title::after {
+    display: none;
+}
+
+/* Footer */
+footer {
+    background-color: var(--background-dark);
+    color: var(--text-color-light);
+    padding: 5rem 0 2rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Mobile-First */
+    justify-content: space-between;
+    margin-bottom: 4rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img-footer {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem; /* Mobile-First */
+    margin-top: 3rem;
+}
+
+.footer-column {
+    flex-basis: 100%;
+}
+
+.footer-column h4 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.footer-column h4::after {
+    content: '';
+    position: absolute;
+    width: 5rem;
+    height: 2px;
+    background-color: var(--primary-color);
+    bottom: 0;
+    left: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 1rem;
+}
+
+.footer-column ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: var(--transition);
+}
+
+.footer-column ul li a:hover {
+    color: var(--primary-color);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animation-Klassen für ScrollTrigger */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Styles (Desktop und Zwischengrößen) */
+@media (min-width: 577px) {
+    h1 {
+        font-size: 3.6rem;
+    }
+
+    .hero {
+        min-height: 40rem;
+    }
+
+    .subtitle {
+        font-size: 1.8rem;
+    }
+
+    .timeline-content {
+        width: 90%;
+    }
+
+    .comparison-table {
+        font-size: 1.6rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 1.5rem;
+    }
+}
+
+@media (min-width: 769px) {
+    h1 {
+        font-size: 4.2rem;
+        margin-top: 0;
+    }
+
+    h2 {
+        font-size: 3.2rem;
+    }
+
+    .hero {
+        min-height: 60rem;
+        padding-top: 0;
+    }
+
+    .subtitle {
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .header-content {
+        padding: 2rem;
+        max-height: none;
+    }
+
+    .hero-quote {
+        max-width: 70%;
+        padding: 2rem 2.5rem;
+        margin: 0 auto 2.5rem;
+    }
+    
+    .hero-quote blockquote {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+    }
+    
+    .hero-quote cite {
+        font-size: 1.4rem;
+    }
+
+    .scroll-button {
+        width: 70px;
+        height: 70px;
+        margin-top: 3rem;
+    }
+    
+    .down-arrow {
+        font-size: 2.8rem;
+    }
+
+    .main-nav {
+        padding: 1.5rem 0;
+    }
+
+    .nav-links {
+        display: flex;
+        position: static;
+        width: auto;
+        flex-direction: row;
+        background-color: transparent;
+        padding: 0 0 0 2rem;
+        box-shadow: none;
+        transition: none;
+        max-height: none;
+        opacity: 1;
+        justify-content: flex-start;
+    }
+
+    .nav-links.active {
+        position: static;
+        flex-direction: row;
+        background-color: transparent;
+        box-shadow: none;
+        max-height: none;
+        opacity: 1;
+    }
+
+    .nav-links a {
+        padding: 0;
+        font-size: 1.4rem;
+    }
+
+    .mobile-menu-btn {
+        display: none;
+    }
+
+    .content-columns {
+        flex-direction: row;
+        gap: 4rem;
+    }
+
+    .bitcoin-features {
+        grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+        gap: 2.5rem;
+    }
+
+    .feature-card {
+        padding: 2.5rem;
+    }
+
+    .feature-card .feature-icon {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .footer-content {
+        flex-direction: row;
+    }
+
+    .footer-links {
+        margin-top: 0;
+        gap: 4rem;
+    }
+
+    .footer-column {
+        flex-basis: auto;
+    }
+}
+
+@media (min-width: 1025px) {
+    h1 {
+        font-size: 4.6rem;
+    }
+
+    h2 {
+        font-size: 3.4rem;
+    }
+
+    h3 {
+        font-size: 2.4rem;
+    }
+
+    .hero {
+        min-height: 100vh;
+    }
+
+    .feature-card .feature-icon {
+        width: 7rem;
+        height: 7rem;
+    }
+
+    .timeline::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        justify-content: flex-end;
+        padding-right: 50%;
+        padding-left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+        justify-content: flex-start;
+        padding-right: 0;
+        padding-left: 50%;
+    }
+
+    .timeline-point {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-content {
+        width: 80%;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::before {
+        right: -10px;
+        left: auto;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::before {
+        left: -10px;
+    }
+}
+
+/* Neue Media Query für sehr große Bildschirme */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 130rem;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    h2 {
+        font-size: 3.6rem;
+    }
+
+    h3 {
+        font-size: 2.6rem;
+    }
+
+    .feature-card .feature-icon {
+        width: 8rem;
+        height: 8rem;
+    }
+}
+
+/* Reduziere den Abstand zwischen Geldgeschichte und Austrian Economics */
+#geldgeschichte {
+    padding-bottom: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+#geldgeschichte .timeline {
+    margin-bottom: 3rem;
+}
+
+#austrian-economics {
+    padding-top: 4rem;
+    position: relative;
+    z-index: 3;
+    background-color: #fff;
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.1);
+}
+
+#austrian-economics .accordion {
+    margin-top: 1rem;
+}
+
+/* Add new utility classes */
+.mt-4 {
+    margin-top: 4rem;
+}
+
+/* CTA Buttons gleichgroß machen */
+.cta-button.primary,
+.cta-button.secondary {
+    min-width: 180px;
+    text-align: center;
+    padding: 1.2rem 2rem;
+    display: inline-block;
+}
+
+@media (max-width: 576px) {
+    .comparison-table {
+        font-size: 1.1rem;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.6rem;
+    }
+}
+
+/* Card Carousel für "Tiefer graben" */
+.card-carousel {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+    overflow-x: auto;
+    padding: 2rem 0;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+.card-container {
+    display: flex;
+    padding: 1rem;
+    gap: 2rem;
+}
+
+.carousel-card {
+    position: relative;
+    min-width: 240px;
+    height: 320px;
+    background: linear-gradient(to bottom, var(--background-dark), #1a2234);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+}
+
+.carousel-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-card .title {
+    color: var(--text-color-light);
+    font-weight: 500;
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 2rem 1.5rem;
+}
+
+.carousel-card .bar {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    right: 20px;
+    height: 5px;
+    border-radius: 5px;
+}
+
+.carousel-card .emptybar {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.carousel-card .filledbar {
+    position: absolute;
+    top: 0;
+    z-index: 3;
+    width: 0px;
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 5px;
+    transition: 0.5s ease;
+}
+
+.carousel-card:hover .filledbar {
+    width: 100%;
+    transition: 0.5s ease;
+}
+
+.carousel-card .card-image {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    height: 160px;
+}
+
+.carousel-card .card-image img {
+    max-width: 100%;
+    max-height: 160px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+/* Spezifische Anpassungen für bestimmte Bilder */
+.carousel-card:first-child .card-image img {
+    transform: scale(1.15);
+    margin-top: -5px;
+}
+
+.carousel-card:last-child .card-image img {
+    transform: scale(1.12);
+    margin-top: -5px;
+}
+
+@media (max-width: 768px) {
+    .card-carousel {
+        padding: 1rem 0;
+    }
+    
+    .carousel-card {
+        min-width: 200px;
+        height: 280px;
+    }
+    
+    .carousel-card .title {
+        font-size: 1.6rem;
+        padding: 1.5rem 1.2rem;
+    }
+    
+    .carousel-card .bar {
+        top: 70px;
+    }
+    
+    .carousel-card .card-image {
+        bottom: 15px;
+        height: 140px;
+    }
+    
+    .carousel-card .card-image img {
+        max-height: 140px;
+    }
+    
+    .carousel-card:first-child .card-image img {
+        transform: scale(1.12);
+    }
+    
+    .carousel-card:last-child .card-image img {
+        transform: scale(1.1);
+    }
+}
+
+/* Stile für das George Mekhail Zitat im Hero-Bereich */
+.hero-quote {
+    margin: 0 auto 2rem;
+    max-width: 85%;
+    background-color: rgba(15, 23, 42, 0.8);
+    border-left: 4px solid var(--primary-color);
+    border-right: 4px solid var(--primary-color);
+    padding: 1rem 1.5rem; /* Reduziertes Padding */
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.hero-quote blockquote {
+    font-size: 1.6rem; /* Kleinere Schrift für mobile */
+    font-style: italic;
+    margin-bottom: 0.5rem; /* Weniger Abstand zum Autor */
+    position: relative;
+    z-index: 1;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.hero-quote cite {
+    font-style: normal;
+    display: block;
+    text-align: center;
+    font-size: 1.3rem; /* Kleinere Schrift für mobile */
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+@media (min-width: 769px) {
+    .hero-quote {
+        max-width: 70%;
+        padding: 2rem 2.5rem;
+    }
+    
+    .hero-quote blockquote {
+        font-size: 2rem;
+    }
+
+    .scroll-button {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .down-arrow {
+        font-size: 2.8rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    .hero-quote {
+        max-width: 60%;
+    }
+    
+    .hero-quote blockquote {
+        font-size: 2.2rem;
+    }
+}
+
+#was-ist-geld {
+    min-height: 100vh;
+    padding-top: 10rem; /* Reduziert von 15rem */
+    padding-bottom: 10rem;
+}
+
+#was-ist-geld .content-columns {
+    margin-bottom: 4rem;
+}
+
+.cta-button.primary,
+.cta-button.secondary {
+    display: none;
+}
+
+/* Anchor-Link-Korrektur */
+:target {
+    scroll-margin-top: 80px; /* Angepasst an die Navbar-Höhe */
+}

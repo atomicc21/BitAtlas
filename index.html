@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Bitcoin verstehen</title>
+    <script>
+        window.addEventListener('beforeunload', function() {
+            window.scrollTo(0, 0);
+        });
+        
+        // Verhindere Scroll-Wiederherstellung
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        
+        window.scrollTo(0, 0);
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="scripts/main.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="header-animation">
+            <canvas id="bitcoinCanvas"></canvas>
+        </div>
+        <div class="header-content">
+            <h1>Bitcoin verstehen</h1>
+            <p class="subtitle">Eine Reise durch die Geschichte des Geldes und der Ökonomie</p>
+            <div class="hero-quote">
+                <blockquote>
+                    „Bitcoin ist: Diamanten ohne Blut. Bargeld ohne Korruption. Gold ohne Gewicht."
+                    <cite>— George Mekhail</cite>
+                </blockquote>
+            </div>
+            <a href="#was-ist-geld" class="scroll-button">
+                <span class="down-arrow">↓</span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <div class="logo">
+                <img src="images/Bitcoin-Logo.png" alt="Bitcoin Logo" class="logo-img" loading="lazy">
+                <span>BitAtlas</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#was-ist-geld">Was ist Geld?</a></li>
+                <li><a href="#geldgeschichte">Geldgeschichte</a></li>
+                <li><a href="#austrian-economics">Austrian Economics</a></li>
+                <li><a href="#bitcoin-eigenschaften">Bitcoin</a></li>
+                <li><a href="#fiat-vergleich">Fiat vs. Bitcoin</a></li>
+                <li><a href="#bildung">Bildung</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="was-ist-geld" class="section">
+            <div class="container">
+                <h2 class="section-title">Was ist Geld?</h2>
+                <div class="content-columns">
+                    <div class="column">
+                        <p>Geld ist weit mehr als nur das, was wir in unseren Taschen tragen. Es ist ein gesellschaftliches Werkzeug mit drei Kernfunktionen:</p>
+                        <ul class="feature-list">
+                            <li>
+                                <div class="feature-icon">💱</div>
+                                <div class="feature-text">
+                                    <h3>Tauschmittel</h3>
+                                    <p>Geld ermöglicht den Austausch von Waren und Dienstleistungen ohne direkten Tauschhandel.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="feature-icon">📏</div>
+                                <div class="feature-text">
+                                    <h3>Recheneinheit</h3>
+                                    <p>Geld erlaubt uns, den Wert verschiedener Güter zu messen und zu vergleichen.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="feature-icon">🏦</div>
+                                <div class="feature-text">
+                                    <h3>Wertaufbewahrungsmittel</h3>
+                                    <p>Geld ermöglicht die Bewahrung von Arbeit und Wert über die Zeit.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <div class="interactive-card">
+                            <h3>Was macht gutes Geld aus?</h3>
+                            <ul class="feature-list">
+                                <li>
+                                    <div class="feature-icon">🔄</div>
+                                    <div class="feature-text">
+                                        <h3>Fungibilität</h3>
+                                        <p>Jede Einheit muss mit jeder anderen austauschbar sein.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="feature-icon">🛡️</div>
+                                    <div class="feature-text">
+                                        <h3>Haltbarkeit</h3>
+                                        <p>Geld sollte über lange Zeit beständig bleiben.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="feature-icon">🚚</div>
+                                    <div class="feature-text">
+                                        <h3>Portabilität</h3>
+                                        <p>Leicht zu transportieren, unabhängig vom Wert.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="feature-icon">✂️</div>
+                                    <div class="feature-text">
+                                        <h3>Teilbarkeit</h3>
+                                        <p>Muss in kleinere Einheiten teilbar sein.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="feature-icon">📉</div>
+                                    <div class="feature-text">
+                                        <h3>Knappheit</h3>
+                                        <p>Der Wert steigt mit der Begrenzung des Angebots.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="geldgeschichte" class="section dark-section">
+            <div class="container">
+                <h2 class="section-title">Die Geschichte des Geldes</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <h3>Tauschhandel</h3>
+                            <span class="timeline-date">Frühzeit</span>
+                            <p>Direkte Waren gegen Waren, ineffizient und limitiert durch die "doppelte Koinzidenz der Bedürfnisse"</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <h3>Warengeld</h3>
+                            <span class="timeline-date">~9000 v. Chr.</span>
+                            <p>Vieh, Muscheln, und andere Güter die Knapp waren, wurden als Zahlungsmittel verwendet</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <h3>Edelmetalle</h3>
+                            <span class="timeline-date">~700 v. Chr.</span>
+                            <p>Gold und Silber setzten sich als Geld durch – knapp, teilbar und beständig</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <h3>Münzgeld</h3>
+                            <span class="timeline-date">~600 v. Chr.</span>
+                            <p>Standardisierte Münzen aus Edelmetallen mit garantiertem Gewicht und Reinheitsgrad</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <h3>Papiergeld</h3>
+                            <span class="timeline-date">7. Jh. n. Chr.</span>
+                            <p>Ursprünglich in China, später durch Gold gedeckt (Goldstandard)</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <h3>Fiat-Geld</h3>
+                            <span class="timeline-date">1971</span>
+                            <p>Nixon beendet die Golddeckung des US-Dollars, Beginn der reinen Fiatwährungen ohne begrenztes Gut als Absicherung</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <h3>Bitcoin</h3>
+                            <span class="timeline-date">2009</span>
+                            <p>Das erste Geld ohne Vertrauensparteien, geschaffen als Antwort auf die Finanzkrise 2008</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="austrian-economics" class="section">
+            <div class="container">
+                <h2 class="section-title">Austrian Economics</h2>
+                
+                <div class="quote-card">
+                    <blockquote>
+                        "Inflation ist Besteuerung ohne Gesetzgebung."
+                        <cite>— Milton Friedman</cite>
+                    </blockquote>
+                </div>
+                
+                <p>Die Österreichische Schule der Nationalökonomie (Austrian Economics) bietet eine alternative Sichtweise zur Mainstream-Ökonomie und ist besonders relevant für das Verständnis von Bitcoin:</p>
+                
+                <ul class="feature-list">
+                    <li>
+                        <div class="feature-icon">🔍</div>
+                        <div class="feature-text">
+                            <h3>Methodologischer Individualismus</h3>
+                            <p>Ökonomische Phänomene werden durch individuelle Handlungen erklärt.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-text">
+                            <h3>Subjektive Werttheorie</h3>
+                            <p>Der Wert wird nicht objektiv bestimmt, sondern durch die subjektive Bewertung der Marktteilnehmer.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon">⚖️</div>
+                        <div class="feature-text">
+                            <h3>Kritik an Zentralbanken</h3>
+                            <p>Die künstliche Manipulation des Geldes führt zu Konjunkturzyklen und Vermögensumverteilung.</p>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="interactive-card mt-4">
+                    <h3>Schlüsselfiguren der Austrian Economics</h3>
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-header">Carl Menger (1840-1921)</div>
+                            <div class="accordion-content">
+                                <p>Gründer der Österreichischen Schule, entwickelte die subjektive Werttheorie und erklärte die Evolution des Geldes.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">Ludwig von Mises (1881-1973)</div>
+                            <div class="accordion-content">
+                                <p>Entwickelte die Theorie der Konjunkturzyklen und argumentierte gegen die zentrale Planung in "Human Action".</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">Friedrich A. Hayek (1899-1992)</div>
+                            <div class="accordion-content">
+                                <p>Nobelpreisträger, der für seine Arbeiten zur Theorie des Geldes, der Konjunkturzyklen und der Marktordnung bekannt ist.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">Murray Rothbard (1926-1995)</div>
+                            <div class="accordion-content">
+                                <p>Verband Austrian Economics mit einer libertären Philosophie und war ein starker Befürworter des freien Marktes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bitcoin-eigenschaften" class="section bitcoin-section">
+            <div class="container">
+                <h2 class="section-title">Bitcoin: Das Geld der Zukunft?</h2>
+                <div class="bitcoin-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔐</div>
+                        <h3>Dezentralisierung</h3>
+                        <p>Keine zentrale Instanz. Das Netzwerk wird von tausenden Knotenpunkten weltweit betrieben.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>Begrenzte Menge</h3>
+                        <p>Maximal knapp 21 Millionen Bitcoin werden jemals existieren, was sie zu absoluter Begrenztheit macht.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Transparenz</h3>
+                        <p>Alle Transaktionen sind in der öffentlichen Blockchain einsehbar. Manipulation hat keine Chance.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Lightning Network</h3>
+                        <p>Second Layers wie Lightning sind das Visa des Bitcoin und sorgen für schnelle Transaktionen und Skalierbarkeit.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Zensurresistenz</h3>
+                        <p>Transaktionen können nicht von Dritten blockiert oder rückgängig gemacht werden. Marktanreize sorgen für Schutz vor Zensur.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌐</div>
+                        <h3>Globaler Zugang</h3>
+                        <p>Jeder mit Internetzugang kann Bitcoin nutzen, unabhängig von lokalen Bankinfrastrukturen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="fiat-vergleich" class="section comparison-section">
+            <div class="container">
+                <h2 class="section-title">Bitcoin vs. Fiat-Währungen</h2>
+                <div class="comparison-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Eigenschaft</th>
+                                <th>Bitcoin</th>
+                                <th>Fiat-Währungen (€, $, etc.)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Kontrolle</td>
+                                <td>Dezentralisiert, peer-to-peer</td>
+                                <td>Zentralisiert durch Regierungen und Zentralbanken</td>
+                            </tr>
+                            <tr>
+                                <td>Angebot</td>
+                                <td>Begrenzt auf knapp 21 Millionen</td>
+                                <td>Unbegrenzt, kann beliebig erweitert werden</td>
+                            </tr>
+                            <tr>
+                                <td>Inflation</td>
+                                <td>Abnehmende Inflationsrate, langfristig deflationär</td>
+                                <td>Zunehmende Inflationsrate, bisher immer in Hyperinflation geendet</td>
+                            </tr>
+                            <tr>
+                                <td>Transaktions­kosten</td>
+                                <td>Variabel, marktbasiert. Günstig in Second Layer Technologien</td>
+                                <td>Versteckt in Inflation und Bankgebühren</td>
+                            </tr>
+                            <tr>
+                                <td>Zensur­resistenz</td>
+                                <td>Sehr hoch, jeder kann seine eigene Bank sein</td>
+                                <td>Gering (Kontosperrung, streng überwacht)</td>
+                            </tr>
+                            <tr>
+                                <td>Transparenz</td>
+                                <td>Transaktionen sind transparent, Geldmenge immer vorhersehbar und überprüfbar</td>
+                                <td>Limitiert, Geldmengen werden gesteuert</td>
+                            </tr>
+                            <tr>
+                                <td>Vertrauens­basis</td>
+                                <td>Kein Vertrauen notwendig, dank Mathematik, Kryptografie, IT & Marktmechanismen</td>
+                                <td>Vertrauen in Staat und Zentralbank nötig</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="interactive-charts">
+                    <div class="chart-container">
+                        <h3>Dollar-Kaufkraft in Bitcoin</h3>
+                        <canvas id="dollar-gold-chart" width="400" height="250"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Bitcoin Kurs in Dollar</h3>
+                        <canvas id="bitcoin-dollar-chart" width="400" height="250"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-section" id="bildung">
+            <div class="container">
+                <h2 class="section-title">Bereit für den nächsten Schritt?</h2>
+                <p>Entdecke mehr Ressourcen zum Thema Bitcoin und finanzielle Freiheit</p>
+                
+                <div class="card-carousel">
+                    <div class="card-container">
+                        <a href="https://amzn.eu/d/dZZ6uFV" class="carousel-card" target="_blank">
+                            <h3 class="title">Lesen</h3>
+                            <div class="bar">
+                                <div class="emptybar"></div>
+                                <div class="filledbar"></div>
+                            </div>
+                            <div class="card-image">
+                                <img src="images/bitcoin-standard.png" alt="Bitcoin Standard Buch">
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.youtube.com/@Blocktrainer" class="carousel-card" target="_blank">
+                            <h3 class="title">Schauen</h3>
+                            <div class="bar">
+                                <div class="emptybar"></div>
+                                <div class="filledbar"></div>
+                            </div>
+                            <div class="card-image">
+                                <img src="images/blocktrainer.png" alt="Blocktrainer YouTube Kanal">
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.wasbitcoinbringt.com/" class="carousel-card" target="_blank">
+                            <h3 class="title">Hören</h3>
+                            <div class="bar">
+                                <div class="emptybar"></div>
+                                <div class="filledbar"></div>
+                            </div>
+                            <div class="card-image">
+                                <img src="images/niko-jilch.jpeg" alt="Was Bitcoin bringt Podcast">
+                            </div>
+                        </a>
+                        
+                        <a href="https://shop.bitbox.swiss/?ref=f5MeAvd46b" class="carousel-card" target="_blank">
+                            <h3 class="title">Erleben</h3>
+                            <div class="bar">
+                                <div class="emptybar"></div>
+                                <div class="filledbar"></div>
+                            </div>
+                            <div class="card-image">
+                                <img src="images/bitbox-2.png" alt="BitBox Hardware Wallet">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/Bitcoin-Logo.png" alt="Bitcoin Logo" class="logo-img-footer" loading="lazy">
+                    <span>BitAtlas</span>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#was-ist-geld">Was ist Geld?</a></li>
+                            <li><a href="#geldgeschichte">Geldgeschichte</a></li>
+                            <li><a href="#austrian-economics">Austrian Economics</a></li>
+                            <li><a href="#bitcoin-eigenschaften">Bitcoin Eigenschaften</a></li>
+                            <li><a href="#fiat-vergleich">Fiat vs. Bitcoin</a></li>
+                            <li><a href="#bildung">Bildung</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Ressourcen</h4>
+                        <ul>
+                            <li><a href="https://amzn.eu/d/dZZ6uFV" target="_blank">Lesen</a></li>
+                            <li><a href="https://www.youtube.com/@Blocktrainer" target="_blank">Schauen</a></li>
+                            <li><a href="https://www.wasbitcoinbringt.com/" target="_blank">Hören</a></li>
+                            <li><a href="https://shop.bitbox.swiss/?ref=f5MeAvd46b" target="_blank">Erleben</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Rechtliches</h4>
+                        <ul>
+                            <li><a href="#">Impressum</a></li>
+                            <li><a href="#">Datenschutz</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 BitAtlas. Alle Rechte vorbehalten. Bitcoin ist ein Open-Source-Projekt.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
